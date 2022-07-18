@@ -1,0 +1,536 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>U0clmbcjIw8jIw8-gt-31770092-2022-05-02T10:31:58.748Z::svc.xml</types1:EntryId>
+      <types1:Name>AR-SC-Zendesk-AuditEvents</types1:Name>
+      <types1:MimeType>application/xml+businesssconnector</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>arajasekaran@mdsol.com.SAML</types1:CreatedBy>
+      <types1:CreationDate>2022-05-02T10:31:59Z</types1:CreationDate>
+      <types1:ModifiedBy>arajasekaran@mdsol.com.SAML</types1:ModifiedBy>
+      <types1:ModificationDate>2022-05-02T15:07:36Z</types1:ModificationDate>
+      <types1:PublicationStatus>unpublished</types1:PublicationStatus>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <businessConnector xmlns="http://schemas.informatica.com/socrates/data-services/2014/05/business-connector-model.xsd"
+                            agentOnly="false"
+                            debug="false"
+                            displayName="AR-SC-Zendesk-AuditEvents"
+                            label=""
+                            name="AR-SC-Zendesk-AuditEvents"
+                            uuid="2a0b46a9-f0ca-4461-9a00-5d1ebe7d73c9">
+            <description/>
+            <tags/>
+            <connectionAttributes xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"/>
+            <actions>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="AuditEvents"
+                       maxRedirects="100"
+                       name="AuditEvents"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="username"
+                                nogen="true"
+                                required="true"
+                                testWith="rmaddala+zdsbxinformatica@mdsol.coml.com"
+                                type="string"/>
+                     <parameter name="password"
+                                nogen="true"
+                                required="true"
+                                testWith="Informatica*8"
+                                type="string"/>
+                     <parameter name="url_parameter"
+                                nogen="true"
+                                required="false"
+                                testWith="cursor=fDE2MzU3MzI2MTAuMHx8"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://mdsolsupport1417540268.zendesk.com/api/v2/ticket_audits.json?limit=50;{$url_parameter}"
+                                        verb="GET">
+                        <authentication>
+                           <username>rmaddala+zdsbxinformatica@mdsol.com</username>
+                           <password>Informatica*8</password>
+                           <isExpressionInPassword>true</isExpressionInPassword>
+                        </authentication>
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description=""
+                            name="Output_AuditEvents_Response"
+                            responseStatusCode="true"
+                            type="double"/>
+                     <field description="" name="Output_JSON" type="string">
+                        <xquery>{let $fixedForXml := replace($RESTResponse/*:payload/text(),"\\b", "")
+let $fixedForXml := replace($fixedForXml, "\\k", "")
+let $fixedForXml := replace($fixedForXml, "\\u1", "")
+let $fixedForXml := replace($fixedForXml, "\\u0", "")
+let $fixedForXml := replace($fixedForXml, "\\u", "")
+let $fixedForXml := replace($fixedForXml, "\\o", "")
+let $fixedForXml := replace($fixedForXml, "\\e", "")
+let $fixedForXml := replace($fixedForXml, "\\d", "")
+let $fixedForXml := replace($fixedForXml, "\\2", "")
+let $fixedForXml := replace($fixedForXml, "\\a", "")
+let $fixedForXml := replace($fixedForXml, "\\i", "")
+let $fixedForXml := replace($fixedForXml, "\\F", "")
+let $fixedForXml := replace($fixedForXml, "\\c", "")
+let $fixedForXml := replace($fixedForXml, "\\d", "")
+let $fixedForXml := replace($fixedForXml, "\\f", "")
+let $fixedForXml := replace($fixedForXml, "\\g", "")
+let $fixedForXml := replace($fixedForXml, "\\h", "")
+let $fixedForXml := replace($fixedForXml, "\\i", "")
+let $fixedForXml := replace($fixedForXml, "\\j", "")
+let $fixedForXml := replace($fixedForXml, "\\l", "")
+let $fixedForXml := replace($fixedForXml, "\\m", "")
+let $fixedForXml := replace($fixedForXml, "\\p", "")
+let $fixedForXml := replace($fixedForXml, "\\q", "")
+let $fixedForXml := replace($fixedForXml, "\\1", "")
+let $fixedForXml := replace($fixedForXml, "\\v", "")
+let $fixedForXml := replace($fixedForXml, "\\w", "")
+let $fixedForXml := replace($fixedForXml, "\\3", "")
+let $fixedForXml := replace($fixedForXml, "\\y", "")
+let $fixedForXml := replace($fixedForXml, "\\z", "")
+let $fixedForXml := replace($fixedForXml, "\\4", "")
+let $fixedForXml := replace($fixedForXml, "\\5", "")
+let $fixedForXml := replace($fixedForXml, "\\6", "")
+let $fixedForXml := replace($fixedForXml, "\\7", "")
+let $fixedForXml := replace($fixedForXml, "\\8", "")
+let $fixedForXml := replace($fixedForXml, "\\9", "")
+let $fixedForXml := replace($fixedForXml, "\\0", "")
+let $fixedForXml := replace($fixedForXml, "\\.", "")
+let $fixedForXml := fn:concat('{"root":',$fixedForXml,'}' )
+return util:parseJSON($fixedForXml)}</xquery>
+                     </field>
+                     <field description="" name="Output_Audits" type="objectlist">
+                        <options>
+                           <option name="referenceTo"/>
+                        </options>
+                        <xquery>{for $i in $Output_JSON//audits
+return
+    &lt;audits&gt;	  
+      &lt;id&gt;{$i/id/text()}&lt;/id&gt;
+      &lt;created_at&gt;{$i/created_at/text()}&lt;/created_at&gt;
+      &lt;ticket_id&gt;{$i/ticket_id/text()}&lt;/ticket_id&gt;
+      &lt;author_id&gt;{$i/author_id/text()}&lt;/author_id&gt;
+	&lt;/audits&gt;}</xquery>
+                     </field>
+                     <field description="" name="Output_Events" type="objectlist">
+                        <options>
+                           <option name="referenceTo"/>
+                        </options>
+                        <xquery>{for $i in $Output_JSON//audits
+return 
+if(fn:exists($i/id/text())) then 
+let $auditId:=$i/id/text() 
+let $cursorId:=$Output_JSON//after_cursor/text()
+for $j in $i/events
+return 
+if(fn:contains($j/field_name/text(),'group_id') or fn:contains($j/field_name/text(),'assignee_id'))
+then 
+&lt;Eventsinfo&gt;
+	  &lt;id&gt;{$j/id/text()}&lt;/id&gt;
+      &lt;ticket_id&gt;{$i/ticket_id/text()}&lt;/ticket_id&gt;
+      &lt;type&gt;{$j/type/text()}&lt;/type&gt;
+      &lt;audit_id&gt;{$auditId}&lt;/audit_id&gt;
+      &lt;value&gt;{$j/value/text()}&lt;/value&gt;
+      &lt;field_name&gt;{$j/field_name/text()}&lt;/field_name&gt;
+      &lt;previous_value&gt;{$j/previous_value/text()}&lt;/previous_value&gt;
+      &lt;after_cursor&gt;{$cursorId}&lt;/after_cursor&gt;
+&lt;/Eventsinfo&gt;  
+else (&lt;Eventsinfo&gt;
+	  &lt;id&gt;&lt;/id&gt;
+      &lt;ticket_id&gt;&lt;/ticket_id&gt;
+      &lt;type&gt;&lt;/type&gt;
+      &lt;audit_id&gt;&lt;/audit_id&gt;
+      &lt;value&gt;&lt;/value&gt;
+      &lt;field_name&gt;&lt;/field_name&gt;
+      &lt;previous_value&gt;&lt;/previous_value&gt;
+      &lt;after_cursor&gt;&lt;/after_cursor&gt;
+&lt;/Eventsinfo&gt;
+)
+else 
+ (
+&lt;Eventsinfo&gt;
+	  &lt;id&gt;&lt;/id&gt;
+      &lt;ticket_id&gt;&lt;/ticket_id&gt;
+      &lt;type&gt;&lt;/type&gt;
+      &lt;audit_id&gt;&lt;/audit_id&gt;
+      &lt;value&gt;&lt;/value&gt;
+      &lt;field_name&gt;&lt;/field_name&gt;
+      &lt;previous_value&gt;&lt;/previous_value&gt;
+      &lt;after_cursor&gt;&lt;/after_cursor&gt;
+&lt;/Eventsinfo&gt;
+)}</xquery>
+                     </field>
+                     <field description="" name="Output_After_Cursor" type="string">
+                        <xquery>{$Output_JSON//after_cursor/text()}</xquery>
+                     </field>
+                     <field description="" name="After_Cursor_Empty" type="string">
+                        <xquery>{if (fn:empty($Output_After_Cursor))
+then 1
+else 0}</xquery>
+                     </field>
+                     <field description="" name="Min_Created_Date" type="date">
+                        <xquery>{let $dates:= $Output_JSON/audits//created_at/xs:date(substring(.,1,10))
+return min($dates)}</xquery>
+                     </field>
+                     <field description="" name="Events_Tags_CSV" type="objectlist">
+                        <options>
+                           <option name="referenceTo"/>
+                        </options>
+                        <xquery>{for $i in $Output_JSON//audits
+return 
+if(fn:exists($i/id/text())) then 
+let $auditId:=$i/id/text() 
+for $j in $i/events
+return
+&lt;Eventsinfo&gt;
+	  &lt;id&gt;{$j/id/text()}&lt;/id&gt;
+      &lt;ticket_id&gt;{$i/ticket_id/text()}&lt;/ticket_id&gt;
+      &lt;type&gt;{$j/type/text()}&lt;/type&gt;
+      &lt;audit_id&gt;{$auditId}&lt;/audit_id&gt;
+      &lt;value&gt;{$j/value/concat(.,
+                if(not(position()=last()))
+                 then ', '
+                 else ()
+                )}&lt;/value&gt;
+      &lt;field_name&gt;{$j/field_name/text()}&lt;/field_name&gt;
+      &lt;previous_value&gt;{$j/previous_value/concat(.,
+                if(not(position()=last()))
+                 then ', '
+                 else ()
+                )}&lt;/previous_value&gt;      
+      &lt;author_id&gt;{$j/author_id/text()}&lt;/author_id&gt;
+	  &lt;public&gt;{$j/public/text()}&lt;/public&gt;
+	  &lt;channel&gt;{$j/via/channel/text()}&lt;/channel&gt; 
+	  &lt;deleted&gt;{$j/via/source/from/deleted/text()}&lt;/deleted&gt;
+	  &lt;title&gt;{$j/via/source/from/title/text()}&lt;/title&gt;
+	  &lt;source_id&gt;{$j/via/source/from/id/text()}&lt;/source_id&gt;
+	  &lt;revision_id&gt;{$j/via/source/from/revision_id/text()}&lt;/revision_id&gt;
+	  &lt;rel&gt;{$j/via/source/rel/text()}&lt;/rel&gt;
+	  &lt;previous_schedule_id&gt;{$j/previous_schedule_id/text()}&lt;/previous_schedule_id&gt;
+	  &lt;new_schedule_id&gt;{$j/new_schedule_id/text()}&lt;/new_schedule_id&gt;
+	  &lt;resource&gt;{$j/resource/text()}&lt;/resource&gt;
+&lt;/Eventsinfo&gt;  
+else (&lt;Eventsinfo&gt;
+	  &lt;id&gt;&lt;/id&gt;
+      &lt;ticket_id&gt;&lt;/ticket_id&gt;
+      &lt;type&gt;&lt;/type&gt;
+      &lt;audit_id&gt;&lt;/audit_id&gt;
+      &lt;value&gt;&lt;/value&gt;
+      &lt;field_name&gt;&lt;/field_name&gt;
+      &lt;previous_value&gt;&lt;/previous_value&gt;      
+      &lt;author_id&gt;&lt;/author_id&gt;
+	  &lt;public&gt;&lt;/public&gt;
+	  &lt;channel&gt;&lt;/channel&gt; 
+	  &lt;deleted&gt;&lt;/deleted&gt;
+	  &lt;title&gt;&lt;/title&gt;
+	  &lt;source_id&gt;&lt;/source_id&gt;
+	  &lt;revision_id&gt;&lt;/revision_id&gt;
+	  &lt;rel&gt;&lt;/rel&gt;
+	  &lt;previous_schedule_id&gt;&lt;/previous_schedule_id&gt;
+	  &lt;new_schedule_id&gt;&lt;/new_schedule_id&gt;
+	  &lt;resource&gt;&lt;/resource&gt;
+&lt;/Eventsinfo&gt;
+)}</xquery>
+                     </field>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="AuditEvents_By_TicketId"
+                       maxRedirects="100"
+                       name="AuditEvents_By_TicketId"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description>Get audit events by individual TicketId </description>
+                  <input>
+                     <parameter name="username"
+                                nogen="true"
+                                required="true"
+                                testWith="skrishnamurthy+zdprodinformatica@mdsol.com"
+                                type="string"/>
+                     <parameter name="password"
+                                nogen="true"
+                                required="true"
+                                testWith="Informatica*8"
+                                type="string"/>
+                     <parameter name="ticket_id"
+                                required="false"
+                                testWith="5404800"
+                                type="string"/>
+                     <parameter name="file_id" required="false" testWith="" type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://mdsolsupport.zendesk.com/api/v2/tickets/{$ticket_id}/audits.json"
+                                        verb="GET">
+                        <authentication>
+                           <username>skrishnamurthy+zdprodinformatica@mdsol.com</username>
+                           <password/>
+                           <isExpressionInPassword>false</isExpressionInPassword>
+                        </authentication>
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description=""
+                            name="Output_AuditEvents_Response"
+                            responseStatusCode="true"
+                            type="double"/>
+                     <field description="" name="Output_JSON" type="string">
+                        <xquery>{let $fixedForXml := replace($RESTResponse/*:payload/text(),"\\.", "")
+let $fixedForXml := fn:concat('{"root":',$fixedForXml,'}' )
+return util:parseJSON($fixedForXml)}</xquery>
+                     </field>
+                     <field description="" name="Output_Audits" type="objectlist">
+                        <options>
+                           <option name="referenceTo"/>
+                        </options>
+                        <xquery>{for $i in $Output_JSON//audits
+return
+    &lt;audits&gt;	  
+      &lt;id&gt;{$i/id/text()}&lt;/id&gt;
+      &lt;created_at&gt;{$i/created_at/text()}&lt;/created_at&gt;
+      &lt;ticket_id&gt;{$i/ticket_id/text()}&lt;/ticket_id&gt;
+      &lt;author_id&gt;{$i/author_id/text()}&lt;/author_id&gt;
+      &lt;file_id&gt;{$file_id }&lt;/file_id&gt;
+	&lt;/audits&gt;}</xquery>
+                     </field>
+                     <field description="" name="Output_Events" type="objectlist">
+                        <options>
+                           <option name="referenceTo"/>
+                        </options>
+                        <xquery>{for $i in $Output_JSON//audits
+return 
+if(fn:exists($i/id/text())) then 
+let $auditId:=$i/id/text() 
+for $j in $i/events where (fn:not(contains($j/field_name/text(),'tags')))
+return
+&lt;Eventsinfo&gt;
+	  &lt;id&gt;{$j/id/text()}&lt;/id&gt;
+      &lt;ticket_id&gt;{$i/ticket_id/text()}&lt;/ticket_id&gt;
+      &lt;type&gt;{$j/type/text()}&lt;/type&gt;
+      &lt;audit_id&gt;{$auditId}&lt;/audit_id&gt;
+      &lt;value&gt;{$j/value/text()}&lt;/value&gt;
+      &lt;field_name&gt;{$j/field_name/text()}&lt;/field_name&gt;
+      &lt;previous_value&gt;{$j/previous_value/text()}&lt;/previous_value&gt;      
+      &lt;author_id&gt;{$j/author_id/text()}&lt;/author_id&gt;
+	  &lt;public&gt;{$j/public/text()}&lt;/public&gt;
+	  &lt;channel&gt;{$j/via/channel/text()}&lt;/channel&gt; 
+	  &lt;deleted&gt;{$j/via/source/from/deleted/text()}&lt;/deleted&gt;
+	  &lt;title&gt;{$j/via/source/from/title/text()}&lt;/title&gt;
+	  &lt;source_id&gt;{$j/via/source/from/id/text()}&lt;/source_id&gt;
+	  &lt;revision_id&gt;{$j/via/source/from/revision_id/text()}&lt;/revision_id&gt;
+	  &lt;rel&gt;{$j/via/source/rel/text()}&lt;/rel&gt;
+	  &lt;previous_schedule_id&gt;{$j/previous_schedule_id/text()}&lt;/previous_schedule_id&gt;
+	  &lt;new_schedule_id&gt;{$j/new_schedule_id/text()}&lt;/new_schedule_id&gt;
+	  &lt;resource&gt;{$j/resource/text()}&lt;/resource&gt;
+&lt;/Eventsinfo&gt;  
+else (&lt;Eventsinfo&gt;
+	  &lt;id&gt;&lt;/id&gt;
+      &lt;ticket_id&gt;&lt;/ticket_id&gt;
+      &lt;type&gt;&lt;/type&gt;
+      &lt;audit_id&gt;&lt;/audit_id&gt;
+      &lt;value&gt;&lt;/value&gt;
+      &lt;field_name&gt;&lt;/field_name&gt;
+      &lt;previous_value&gt;&lt;/previous_value&gt;      
+      &lt;author_id&gt;&lt;/author_id&gt;
+	  &lt;public&gt;&lt;/public&gt;
+	  &lt;channel&gt;&lt;/channel&gt; 
+	  &lt;deleted&gt;&lt;/deleted&gt;
+	  &lt;title&gt;&lt;/title&gt;
+	  &lt;source_id&gt;&lt;/source_id&gt;
+	  &lt;revision_id&gt;&lt;/revision_id&gt;
+	  &lt;rel&gt;&lt;/rel&gt;
+	  &lt;previous_schedule_id&gt;&lt;/previous_schedule_id&gt;
+	  &lt;new_schedule_id&gt;&lt;/new_schedule_id&gt;
+	  &lt;resource&gt;&lt;/resource&gt;
+&lt;/Eventsinfo&gt;
+)}</xquery>
+                     </field>
+                     <field description="" name="Output_Current_Tags" type="objectlist">
+                        <options>
+                           <option name="referenceTo"/>
+                        </options>
+                        <xquery>{let $po := (for $i in $Output_JSON//audits
+return 
+if(fn:exists($i/id/text())) then 
+let $auditId:=$i/id/text() 
+for $j in $i/events
+where ($j/field_name = 'tags')
+return
+for $k in $j/value
+return
+&lt;Eventsinfo&gt;
+      &lt;audit_id&gt;{$auditId}&lt;/audit_id&gt;
+	  &lt;event_id&gt;{$j/id/text()}&lt;/event_id&gt;
+      &lt;ticket_id&gt;{$i/ticket_id/text()}&lt;/ticket_id&gt;
+      &lt;type&gt;{$j/type/text()}&lt;/type&gt;
+      &lt;value&gt;{$k/text()}&lt;/value&gt;
+      &lt;field_name&gt;{$j/field_name/text()}&lt;/field_name&gt;
+	  &lt;channel&gt;{$j/via/channel/text()}&lt;/channel&gt; 
+	  &lt;deleted&gt;{$j/via/source/from/deleted/text()}&lt;/deleted&gt;
+	  &lt;title&gt;{$j/via/source/from/title/text()}&lt;/title&gt;
+	  &lt;source_id&gt;{$j/via/source/from/id/text()}&lt;/source_id&gt;
+	  &lt;revision_id&gt;{$j/via/source/from/revision_id/text()}&lt;/revision_id&gt;
+	  &lt;rel&gt;{$j/via/source/rel/text()}&lt;/rel&gt;
+&lt;/Eventsinfo&gt;  
+else (&lt;Eventsinfo&gt;
+      &lt;audit_id&gt;&lt;/audit_id&gt;
+	  &lt;event_id&gt;&lt;/event_id&gt;
+      &lt;ticket_id&gt;&lt;/ticket_id&gt;
+      &lt;type&gt;&lt;/type&gt;
+      &lt;value&gt;&lt;/value&gt;
+      &lt;field_name&gt;&lt;/field_name&gt;
+	  &lt;channel&gt;&lt;/channel&gt; 
+	  &lt;deleted&gt;&lt;/deleted&gt;
+	  &lt;title&gt;&lt;/title&gt;
+	  &lt;source_id&gt;&lt;/source_id&gt;
+	  &lt;revision_id&gt;&lt;/revision_id&gt;
+	  &lt;rel&gt;&lt;/rel&gt;
+&lt;/Eventsinfo&gt;
+)
+)
+return 
+let $count_row := fn:count($po ) 
+return
+if ($count_row gt 0)
+then 
+$po
+else (
+&lt;Eventsinfo&gt;
+      &lt;audit_id&gt;&lt;/audit_id&gt;
+	  &lt;event_id&gt;&lt;/event_id&gt;
+      &lt;ticket_id&gt;&lt;/ticket_id&gt;
+      &lt;type&gt;&lt;/type&gt;
+      &lt;value&gt;&lt;/value&gt;
+      &lt;field_name&gt;&lt;/field_name&gt;
+	  &lt;channel&gt;&lt;/channel&gt; 
+	  &lt;deleted&gt;&lt;/deleted&gt;
+	  &lt;title&gt;&lt;/title&gt;
+	  &lt;source_id&gt;&lt;/source_id&gt;
+	  &lt;revision_id&gt;&lt;/revision_id&gt;
+	  &lt;rel&gt;&lt;/rel&gt;
+&lt;/Eventsinfo&gt;
+)}</xquery>
+                     </field>
+                     <field description="" name="Output_Prev_Tags" type="objectlist">
+                        <options>
+                           <option name="referenceTo"/>
+                        </options>
+                        <xquery>{let $po:= (for $i in $Output_JSON//audits
+return 
+if(fn:exists($i/id/text())) then 
+let $auditId:=$i/id/text() 
+for $j in $i/events
+where ($j/field_name = 'tags')
+return
+for $k in $j/previous_value
+return
+&lt;Eventsinfo&gt;
+      &lt;audit_id&gt;{$auditId}&lt;/audit_id&gt;
+	  &lt;event_id&gt;{$j/id/text()}&lt;/event_id&gt;
+      &lt;ticket_id&gt;{$i/ticket_id/text()}&lt;/ticket_id&gt;
+      &lt;previous_value&gt;{$k/text()}&lt;/previous_value&gt;
+&lt;/Eventsinfo&gt;  
+else (&lt;Eventsinfo&gt;
+      &lt;audit_id&gt;&lt;/audit_id&gt;
+	  &lt;event_id&gt;&lt;/event_id&gt;
+      &lt;ticket_id&gt;&lt;/ticket_id&gt;
+      &lt;previous_value&gt;&lt;/previous_value&gt;
+&lt;/Eventsinfo&gt;
+)
+)
+return
+let $count_row := fn:count($po) 
+return
+if ($count_row gt 0)
+then 
+$po
+else (
+&lt;Eventsinfo&gt;
+      &lt;audit_id&gt;&lt;/audit_id&gt;
+	  &lt;event_id&gt;&lt;/event_id&gt;
+      &lt;ticket_id&gt;&lt;/ticket_id&gt;
+      &lt;previous_value&gt;&lt;/previous_value&gt;
+&lt;/Eventsinfo&gt;
+)}</xquery>
+                     </field>
+                     <field description="" name="Output_XML_Original" type="string">
+                        <xquery>{let $fixedForXml := replace($RESTResponse/*:payload/text(),"\\b", "")
+let $fixedForXml := replace($fixedForXml, "\\k", "")
+let $fixedForXml := replace($fixedForXml, "\\u1", "")
+let $fixedForXml := replace($fixedForXml, "\\u0", "")
+let $fixedForXml := replace($fixedForXml, "\\u", "")
+let $fixedForXml := replace($fixedForXml, "\\o", "")
+let $fixedForXml := replace($fixedForXml, "\\e", "")
+let $fixedForXml := replace($fixedForXml, "\\d", "")
+let $fixedForXml := replace($fixedForXml, "\\2", "")
+let $fixedForXml := replace($fixedForXml, "\\a", "")
+let $fixedForXml := replace($fixedForXml, "\\i", "")
+let $fixedForXml := replace($fixedForXml, "\\F", "")
+let $fixedForXml := replace($fixedForXml, "\\c", "")
+let $fixedForXml := replace($fixedForXml, "\\d", "")
+let $fixedForXml := replace($fixedForXml, "\\f", "")
+let $fixedForXml := replace($fixedForXml, "\\g", "")
+let $fixedForXml := replace($fixedForXml, "\\h", "")
+let $fixedForXml := replace($fixedForXml, "\\i", "")
+let $fixedForXml := replace($fixedForXml, "\\j", "")
+let $fixedForXml := replace($fixedForXml, "\\l", "")
+let $fixedForXml := replace($fixedForXml, "\\m", "")
+let $fixedForXml := replace($fixedForXml, "\\p", "")
+let $fixedForXml := replace($fixedForXml, "\\q", "")
+let $fixedForXml := replace($fixedForXml, "\\1", "")
+let $fixedForXml := replace($fixedForXml, "\\v", "")
+let $fixedForXml := replace($fixedForXml, "\\w", "")
+let $fixedForXml := replace($fixedForXml, "\\3", "")
+let $fixedForXml := replace($fixedForXml, "\\y", "")
+let $fixedForXml := replace($fixedForXml, "\\z", "")
+let $fixedForXml := replace($fixedForXml, "\\4", "")
+let $fixedForXml := replace($fixedForXml, "\\5", "")
+let $fixedForXml := replace($fixedForXml, "\\6", "")
+let $fixedForXml := replace($fixedForXml, "\\7", "")
+let $fixedForXml := replace($fixedForXml, "\\8", "")
+let $fixedForXml := replace($fixedForXml, "\\9", "")
+let $fixedForXml := replace($fixedForXml, "\\0", "")
+let $fixedForXml := replace($fixedForXml, "\\.", "")
+let $fixedForXml := fn:concat('{"root":',$fixedForXml,'}' )
+return 
+$fixedForXml}</xquery>
+                     </field>
+                     <field description="" name="Output_XML_test" type="string">
+                        <xquery>{let $fixedForXml := replace($RESTResponse/*:payload/text(),"\\.", "")
+let $fixedForXml := fn:concat('{"root":',$fixedForXml,'}' )
+return 
+$fixedForXml}</xquery>
+                     </field>
+                  </output>
+               </action>
+            </actions>
+            <objects/>
+         </businessConnector>
+      </types1:Entry>
+      <types1:GUID>2PVWUIZlpowfwo00Mdjw6r</types1:GUID>
+      <types1:DisplayName>AR-SC-Zendesk-AuditEvents</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2022-07-18T09:56:06.049Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>
